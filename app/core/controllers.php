@@ -10,4 +10,10 @@ class Controller
             die('View tidak ditemukan: ' . $view);
         }
     }
+
+    public function modal($model)
+    {
+        require_once '../app/models/' . $model . '.php';
+        return new $model();
+    }
 }
