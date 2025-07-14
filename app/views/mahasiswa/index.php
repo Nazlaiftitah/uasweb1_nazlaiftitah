@@ -9,7 +9,8 @@
     <div class="row">
         <div class="col-10">
             <!-- Tombol trigger modal -->
-            <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#formModal">
+            <button type="button" class="btn btn-success mb-3 tampilModalTambah" data-bs-toggle="modal"
+                data-bs-target="#formModal">
                 + Tambah Data Mahasiswa
             </button>
 
@@ -21,7 +22,8 @@
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
-                            <th colspan="2">Aksi</th>
+                            <th>Informasi</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,9 +34,15 @@
                             <td><?= $mhs['nama']; ?></td>
                             <td>
                                 <a href="<?= BASEURL ?>/mahasiswa/detail/<?= $mhs['id'] ?>"
-                                    class="btn btn-info btn-sm float-right">Detail</a>
+                                    class="btn btn-info btn-sm ">Detail</a>
                             </td>
+
                             <td>
+                                <a href="#" class="btn btn-success btn-sm tampilModalUbah" data-bs-toggle="modal"
+                                    data-bs-target="#formModal" data-id="<?= $mhs['id']; ?>">
+                                    Ubah
+                                </a>
+
                                 <a href="<?= BASEURL ?>/mahasiswa/hapus/<?= $mhs['id'] ?>" class="btn btn-danger btn-sm"
                                     onclick="confirm('Yakin Untuk Menghapus Data Mahasiswa Tersebut ?')">Hapus</a>
                             </td>
@@ -51,13 +59,15 @@
 <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="<?= BASEURL; ?>/mahasiswa/tambah" method="post">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="formModalLabel">Tambah Data Mahasiswa</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
-                </div>
-                <div class="modal-body">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="formModalLabel">Tambah Data Mahasiswa</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formMahasiswa" action="<?= BASEURL; ?>/mahasiswa/tambah" method="post">
                     <div class="mb-3">
+
                         <label for="nama" class="form-label">Nama Mahasiswa</label>
                         <input type="text" class="form-control" id="nama" name="nama" required>
                     </div>
@@ -80,11 +90,13 @@
                             <option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>
                         </select>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-success">Simpan Data</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Tutup</button>
+                <input type="hidden" name="id" id="id">
+
+                <button type="submit" class="btn btn-success">Simpan Data</button>
+            </div>
             </form>
         </div>
     </div>
