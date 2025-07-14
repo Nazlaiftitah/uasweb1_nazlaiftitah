@@ -1,30 +1,80 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-10">
-            <h3 class="mb-4">Daftar Mahasiswa</h3>
+            <!-- Tombol trigger modal -->
+            <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#formModal">
+                + Tambah Data Mahasiswa
+            </button>
+
+            <h3 class="mb-3">Daftar Mahasiswa</h3>
+
             <div class="table-responsive">
-                <table class="table table-striped table-hover table-bordered align-middle shadow-sm">
-                    <thead class="table-primary">
+                <table class="table table-striped table-hover table-bordered shadow-sm">
+                    <thead class="table-success text-center">
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
                             <th>Informasi</th>
-
                         </tr>
                     </thead>
                     <tbody>
                         <?php $no = 1;
                         foreach ($data['mhs'] as $mhs) : ?>
                         <tr>
-                            <td><?= $no++; ?></td>
+                            <td class="text-center"><?= $no++; ?></td>
                             <td><?= $mhs['nama']; ?></td>
-                            <td><a href="<?= BASEURL ?>/mahasiswa/detail/<?= $mhs['id'] ?>">Detail</a></td>
-
+                            <td>
+                                <a href="<?= BASEURL ?>/mahasiswa/detail/<?= $mhs['id'] ?>"
+                                    class="btn btn-info btn-sm">Detail</a>
+                            </td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Tambah Data -->
+<div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="<?= BASEURL; ?>/mahasiswa/tambah" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="formModalLabel">Tambah Data Mahasiswa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Mahasiswa</label>
+                        <input type="text" class="form-control" id="nama" name="nama" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nim" class="form-label">NIM</label>
+                        <input type="text" class="form-control" id="nim" name="nim" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Mahasiswa</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="jurusan" class="form-label">Jurusan</label>
+                        <select class="form-select" id="jurusan" name="jurusan" required>
+                            <option selected disabled value="">-- Pilih Jurusan --</option>
+                            <option value="Manajemen Informatika">Manajemen Informatika</option>
+                            <option value="Teknik Komputer">Teknik Komputer</option>
+                            <option value="Teknik Informatika">Teknik Informatika</option>
+                            <option value="Sistem Informasi">Sistem Informasi</option>
+                            <option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-success">Simpan Data</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
