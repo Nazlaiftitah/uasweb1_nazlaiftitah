@@ -1,4 +1,11 @@
 <div class="container mt-5">
+
+    <div class="row">
+
+        <div class="col-lg-6">
+            <?= Flasher::flash(); ?>
+        </div>
+    </div>
     <div class="row">
         <div class="col-10">
             <!-- Tombol trigger modal -->
@@ -14,7 +21,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
-                            <th>Informasi</th>
+                            <th colspan="2">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -25,7 +32,12 @@
                             <td><?= $mhs['nama']; ?></td>
                             <td>
                                 <a href="<?= BASEURL ?>/mahasiswa/detail/<?= $mhs['id'] ?>"
-                                    class="btn btn-info btn-sm">Detail</a>
+                                    class="btn btn-info btn-sm float-right">Detail</a>
+                            </td>
+                            <td>
+                                <a href="<?= BASEURL ?>/mahasiswa/detail/<?= $mhs['id'] ?>"
+                                    class="btn btn-danger btn-sm"
+                                    onclick="confirm('Yakin Untuk Menghapus Data Mahasiswa Tersebut ?')">Hapus</a>
                             </td>
                         </tr>
                         <?php endforeach; ?>
