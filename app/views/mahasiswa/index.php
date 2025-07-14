@@ -8,9 +8,8 @@
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
-                            <th>NIM</th>
-                            <th>Email</th>
-                            <th>Jurusan</th>
+                            <th>Informasi</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -19,9 +18,8 @@
                         <tr>
                             <td><?= $no++; ?></td>
                             <td><?= $mhs['nama']; ?></td>
-                            <td><?= $mhs['nim']; ?></td>
-                            <td><?= $mhs['email']; ?></td>
-                            <td><?= $mhs['jurusan']; ?></td>
+                            <td><a href="<?= BASEURL ?>/mahasiswa/detail/<?= $mhs['id'] ?>">Detail</a></td>
+
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
