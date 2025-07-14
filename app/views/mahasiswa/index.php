@@ -35,8 +35,7 @@
                                     class="btn btn-info btn-sm float-right">Detail</a>
                             </td>
                             <td>
-                                <a href="<?= BASEURL ?>/mahasiswa/detail/<?= $mhs['id'] ?>"
-                                    class="btn btn-danger btn-sm"
+                                <a href="<?= BASEURL ?>/mahasiswa/hapus/<?= $mhs['id'] ?>" class="btn btn-danger btn-sm"
                                     onclick="confirm('Yakin Untuk Menghapus Data Mahasiswa Tersebut ?')">Hapus</a>
                             </td>
                         </tr>
