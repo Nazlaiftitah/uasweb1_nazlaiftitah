@@ -54,9 +54,11 @@ class Mahasiswa extends Controller
     public function ubah()
     {
         if ($this->modal('Mahasiswa_model')->ubahDataMahasiswa($_POST) > 0) {
+            Flasher::setFlash('Berhasil', 'Update', 'success');
             header('Location: ' . BASEURL . '/mahasiswa');
             exit;
         } else {
+            Flasher::setFlash('Gagal', 'Update', 'danger');
             header('Location: ' . BASEURL . '/mahasiswa');
             exit;
         }
