@@ -67,7 +67,9 @@ class Mahasiswa extends Controller
     public function cari()
     {
         $data['judul'] = 'Daftar Mahasiswa';
-        $data['mhs'] = $this->modal('Mahasiswa_model')->cariDataMahasiswa();
+        $keyword = $_POST['keyword']; // ambil dari form input
+        $data['mhs'] = $this->modal('Mahasiswa_model')->cariDataMahasiswa($keyword);
+
         $this->view('templates/header', $data);
         $this->view('mahasiswa/index', $data);
         $this->view('templates/footer');

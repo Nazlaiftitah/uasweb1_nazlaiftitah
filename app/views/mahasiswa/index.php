@@ -23,6 +23,8 @@
                             id="keyword" autocomplete="off">
                         <button class="btn btn-primary" type="submit">Cari</button>
                     </div>
+                </form> <!-- ✅ Form ditutup -->
+
             </div>
         </div>
 
