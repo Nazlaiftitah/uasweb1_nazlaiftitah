@@ -1,6 +1,6 @@
 <?php
 
-class controllers
+class Controller
 {
     // Controller methods would go here
 }
